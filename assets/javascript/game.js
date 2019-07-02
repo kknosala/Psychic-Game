@@ -12,6 +12,7 @@ var winText = document.getElementById("playerwin-text");
 var lossText = document.getElementById("playerloss-text");
 var guessText = document.getElementById("guessesleft-text");
 var guessesMadeText = document.getElementById("guessesmade-text");
+var winMessageText = document.getElementById("winmessage-text");
 
 //inital text values
 winText.innerHTML = wins;
@@ -43,6 +44,7 @@ document.onkeyup = function(event) {
         playerGuesses = [];
         guessesLeft = 9;
         guessText.innerHTML = guessesLeft;
+        winMessageText.innerHTML = "You Win!"
     }
     //if player uses all guesses, reset game and increase loss counter
     else if(guessesLeft === 0) {
@@ -52,6 +54,7 @@ document.onkeyup = function(event) {
         guessesMadeText.innerHTML = playerGuesses;
         guessesLeft = 9;
         guessText.innerHTML = guessesLeft;
+        winMessageText.innerHTML = "You Lose!"
     }
     
 }

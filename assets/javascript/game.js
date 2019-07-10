@@ -23,12 +23,14 @@ guessText.innerHTML = guessesLeft;
 document.onkeyup = function(event) {
     //user hits keyboard
     var playerGuess = event.key;
-    //guesses left decreases with each click
-    guessesLeft--;
-    //Updates the guesses left on the page
-    guessText.innerHTML = guessesLeft;
-    //adds the guess to the array
-    playerGuesses.push(playerGuess);
+    //adds the guess to the array if not already present
+    if(playerGuesses.indexOf(playerGuess) === -1){
+        playerGuesses.push(playerGuess);
+        //guesses left decreases with each click
+        guessesLeft--;
+        //Updates the guesses left on the page
+        guessText.innerHTML = guessesLeft;
+    }
     //updates the text for player guesses
     guessesMadeText.innerHTML = playerGuesses + ", ";
     //generates random number between 0 and 25 for the computerChoices array then assign the chosen entry of the array to the computerGuess variable
